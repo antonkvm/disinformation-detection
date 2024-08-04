@@ -4,40 +4,41 @@
 
 Set up a virtual environment to not clog up the global Python package installation folder:
 
-Build a virtual environment folder called 'env':
-~~~zsh
-python -m venv env
-~~~
+1. Build a virtual environment folder called 'env':
 
-Activate the environment (might differ depending on OS):
+    ~~~zsh
+    python -m venv env
+    ~~~
 
-~~~zsh
-source env/bin/activate
-~~~
+2. Activate the environment (might differ depending on OS):
 
-Install the dependencies into your venv:
+    ~~~zsh
+    source env/bin/activate
+    ~~~
 
-~~~zsh
-pip install -r requirements.txt 
-~~~
+3. Install the dependencies into your venv:
 
-For Jupyter Notebook: make the virtual environment available as a kernel:
+    ~~~zsh
+    pip install -r requirements.txt 
+    ~~~
 
-~~~zsh
-ipython kernel install --user --name=venv_ddp
-~~~
+4. For Jupyter Notebook: make the virtual environment available as a kernel:
 
-If needed, uninstall the kernel with:
+    ~~~zsh
+    ipython kernel install --user --name=venv_ddp
+    ~~~
 
-~~~zsh
-jupyter-kernelspec uninstall venv_ddp
-~~~
+5. If needed, uninstall the kernel with:
 
-If you forgot the kernel name, you can list installed kernels with
+    ~~~zsh
+    jupyter-kernelspec uninstall venv_ddp
+    ~~~
 
-~~~zsh
-jupyter-kernelspec list
-~~~
+6. If you forgot the kernel name, you can list installed kernels with
+
+    ~~~zsh
+    jupyter-kernelspec list
+    ~~~
 
 ## Usage
 
