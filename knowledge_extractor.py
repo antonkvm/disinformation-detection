@@ -17,6 +17,7 @@ SPO_triple = namedtuple('SPO_triple', ['subject', 'predicate', 'object'])
 # Load SpaCy model
 nlp = spacy.load('en_core_web_sm')
 
+
 def extract_spo_triples(text: str) -> list[SPO_triple]:
     """Extract the knowledge from `text` as SPO-triples.
 
@@ -55,10 +56,7 @@ def _get_subjects_for_predicate(predicate: Token, sent: Span) -> list[Token]:
     subjects_for_predicate = []
     p = predicate
     for token in sent:
-        if (
-            ('subj' in token.dep_ and token.head == p) 
-            or p in [t.head for t in token.conjuncts if 'subj' in t.dep_]
-        ):
+        if ('subj' in token.dep_ and token.head == p) or p in [t.head for t in token.conjuncts if 'subj' in t.dep_]:
             subjects_for_predicate.append(token)
     return subjects_for_predicate
 
@@ -94,4 +92,4 @@ if __name__ == '__main__':
     knowledge = extract_spo_triples(text)
     print('Extracted SPO-triples:')
     for i, triple in enumerate(knowledge):
-        print(i+1, ': ', triple, sep='')
+        print(i + 1, ': ', triple, sep='')
