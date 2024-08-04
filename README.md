@@ -12,7 +12,6 @@ python -m venv venv
 source venv/bin/activate
 
  # install dependencies into venv
- # (includes spacy's ~550MB 'en-core-web-lg' model)
 pip install -r requirements.txt 
 
 # for jupyter notebook: install kernel from the active venv onto your machine
