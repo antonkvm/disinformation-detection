@@ -2,27 +2,57 @@
 
 ## Setup
 
-To not clog up the global Python package installations, set up a virtual environment:
+Set up a virtual environment to not clog up the global Python package installation folder:
 
-~~~Shell
-# build virtual environment folder 'venv'
-python -m venv venv
+Build a virtual environment folder called 'env':
+~~~zsh
+python -m venv env
+~~~
 
-# activate venv (might differ depending on OS)
-source venv/bin/activate
+Activate the environment (might differ depending on OS):
 
- # install dependencies into venv
+~~~zsh
+source env/bin/activate
+~~~
+
+Install the dependencies into your venv:
+
+~~~zsh
 pip install -r requirements.txt 
+~~~
 
-# for jupyter notebook: install kernel from the active venv onto your machine
-# (this will make a kernel 'venv_ddp' available that has the dependencies installed)
+For Jupyter Notebook: make the virtual environment available as a kernel:
+
+~~~zsh
 ipython kernel install --user --name=venv_ddp
+~~~
 
-# uninstall the kernel with
+If needed, uninstall the kernel with:
+
+~~~zsh
 jupyter-kernelspec uninstall venv_ddp
+~~~
 
-# if you forgot the kernel name, you can list installed kernels with
+If you forgot the kernel name, you can list installed kernels with
+
+~~~zsh
 jupyter-kernelspec list
+~~~
+
+## Usage
+
+~~~Python
+import knowledge_extractor as knex
+
+text = 'Obama was born in Hawaii.'
+triples = knex.extract_spo_triples(text)
+print(triples)
+~~~
+
+Output:
+
+~~~Python
+[SPO_triple(subject='Barack Obama', predicate='born in', object='Hawaii')]
 ~~~
 
 ## Notes for later
